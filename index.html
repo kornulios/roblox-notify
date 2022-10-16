@@ -1,0 +1,29 @@
+<html>
+  <head> </head>
+  <body>
+    <h1>Roblox server messages</h2>
+
+    <div id="main">New messages will appear here</div>
+
+  </body>
+  <script>
+    let messageQueue = [];
+    const ws = new WebSocket("ws://192.168.1.135:3000/", "echo-protocol");
+
+    ws.onmessage = (event) => {
+      messageQueue.push(event.data);
+      const mainDiv = document.getElementById("main");
+      mainDiv.innerHTML = "";
+
+      const elementContent = messageQueue.map(message => {
+        const el = document.createElement('div');
+        el.innerHTML = message
+        mainDiv.appendChild(el);
+      });
+    };
+
+    ws.addEventListener("open", (event) => {
+      console.log("Connected to server");
+    });
+  </script>
+</html>
