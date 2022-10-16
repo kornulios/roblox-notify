@@ -1,12 +1,12 @@
 # roblox-notify
 
 To clone repository locally:
-git clone <url>
+`git clone <url>`
 
 To install dependencies run:
-npm install
+`npm install`
 
 Run local webserver via live-server
 `npm install -g live-server`
 
-To run websocket server use nodemon ./server/<servername>
+To run websocket server use `nodemon ./server/<servername>`
